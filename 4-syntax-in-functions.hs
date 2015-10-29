@@ -2,11 +2,14 @@
 englishDigit :: Int -> String
 englishDigit x = undefined
 
--- given a tuple, divide fst by snd, using pattern matching. 
+-- given a tuple, divide fst by snd, using pattern matching.
 -- it should return undefined for division by zero
 divTuple :: (Eq a, Fractional a) => (a, a) -> a
-divTuple (x, y) = undefined
+divTuple (x, 0) = undefined
+divTuple (x, y) = x / y
 
 -- if the first three numbers in a list are all zero, return True
 threeZeroList :: [Int] -> Bool
-threeZeroList [x] = undefined
+threeZeroList xs = case xs of
+  0 : 0 : 0 : _ -> True
+  _ -> False
