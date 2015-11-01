@@ -59,13 +59,13 @@ stepReverseSign a
  -}
 
 piCalc :: (Fractional a, Integral b, Ord a) => a -> (a, b)
-piCalc a = piCalc' 1 0 a 0
+piCalc a = piCalc' 1 0.0 a 0
 
 piCalc' :: (Ord a, Fractional a, Integral b) => a -> a -> a -> b -> (a, b)
 piCalc' w x y z
-  | z == 0 = piCalc' 3 4 y 1
+  | z == 0 = piCalc' (-3) 4.0 y 1
   | 4 / abs(w) < y = (abs x, z)
   | otherwise = let w' = stepReverseSign w 2
-                    x' = x + 4 / w'
+                    x' = x + 4 / w
                     z' = z + 1
                 in piCalc' w' x' y z'
