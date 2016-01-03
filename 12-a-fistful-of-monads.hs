@@ -5,7 +5,7 @@
  -   Success, which takes that parameter and
  -   Fail String, which represents a failure, and a reason for that failure
  -}
-data Validation a = Success a | Fail String
+data Validation a = Success a | Fail String deriving (Show)
 
 -- Make the Validation a Monad
 instance Functor Validation where
